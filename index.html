@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE基础test</title>
+</head>
+
+
+<body>
+    <div id="app">
+        <h1>极简记事本</h1>
+        <input v-model='inputValue' @keyup.enter="add" autofocus="autofocus" autocomplete="off" placeholder="请输入任务">
+        <section>
+            <ul>
+                <li v-for='(item,index) in arr'>
+                    <span>{{ index }}</span>
+                    <label>{{ item }}</label>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                arr: ['写代码', '看动画', '打游戏'],
+                inputValue: '请输入事件名称'
+            },
+            methods: {
+                add: function() {
+                    this.arr.push(this.inputValue)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
