@@ -11,8 +11,19 @@
 <style>
     .hang {
         border: 1px solid gray;
-        width: 120px;
+        width: 130px;
         padding: 3px 3px 3px 3px;
+    }
+    
+    #app {
+        border: 1px solid grey;
+        width: 50%;
+        padding-bottom: 5px;
+    }
+    
+    .clear {
+        float: right;
+        padding-right: 10px;
     }
 </style>
 
@@ -29,6 +40,7 @@
                 </li>
             </ul>
             <span><strong>{{ arr.length}} </strong>items left</span>
+            <button class="clear" @click="clear"><strong>clear</strong></button>
         </section>
     </div>
     <!-- 开发环境版本，包含了有帮助的命令行警告 -->
@@ -46,6 +58,9 @@
                 },
                 remove: function(index) {
                     this.arr.splice(index, 1)
+                },
+                clear: function() {
+                    this.arr = []
                 }
             }
         })
