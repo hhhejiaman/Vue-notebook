@@ -8,6 +8,13 @@
     <title>VUE基础test</title>
 </head>
 
+<style>
+    .hang {
+        border: 1px solid gray;
+        width: 120px;
+        padding: 3px 3px 3px 3px;
+    }
+</style>
 
 <body>
     <div id="app">
@@ -15,9 +22,10 @@
         <input v-model='inputValue' @keyup.enter="add" autofocus="autofocus" autocomplete="off" placeholder="请输入任务">
         <section>
             <ul>
-                <li v-for='(item,index) in arr'>
+                <li v-for='(item,index) in arr' class="hang">
                     <span>{{ index }}</span>
                     <label>{{ item }}</label>
+                    <input type="button" value="×" @click="remove(index)">
                 </li>
             </ul>
         </section>
@@ -34,6 +42,9 @@
             methods: {
                 add: function() {
                     this.arr.push(this.inputValue)
+                },
+                remove: function(index) {
+                    this.arr.splice(index, 1)
                 }
             }
         })
